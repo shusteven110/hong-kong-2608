@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { 
-  ShieldAlert, 
   FileText, 
   CreditCard, 
   UtensilsCrossed, 
   Plug, 
-  CloudSun, 
   PhoneCall, 
   AlertTriangle, 
   CheckCircle2, 
   ExternalLink,
   Info,
   Sparkles,
-  Luggage,
   Compass
 } from 'lucide-react';
 
@@ -202,8 +199,8 @@ export const TravelTips: React.FC = () => {
             onClick={() => setActiveCategory(cat.id)}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap flex-shrink-0 ${
               activeCategory === cat.id
-                ? 'bg-orange-500 text-white shadow-sm ring-2 ring-orange-200'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                ? 'bg-orange-500 text-white shadow-sm ring-2 ring-orange-200 dark:ring-orange-900/50'
+                : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800'
             }`}
           >
             {cat.label}
@@ -212,15 +209,15 @@ export const TravelTips: React.FC = () => {
       </div>
 
       {/* Warning Box for E-cigarettes */}
-      <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 shadow-xs">
-        <div className="w-9 h-9 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+      <div className="bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 shadow-xs">
+        <div className="w-9 h-9 rounded-xl bg-rose-100 dark:bg-rose-900/60 text-rose-600 dark:text-rose-400 flex items-center justify-center flex-shrink-0 mt-0.5">
           <AlertTriangle className="w-5 h-5" />
         </div>
         <div>
-          <h3 className="text-sm sm:text-base font-bold text-rose-900 mb-1">
+          <h3 className="text-sm sm:text-base font-bold text-rose-900 dark:text-rose-200 mb-1">
             出境海關最高警戒：切勿攜帶「電子煙 / 加熱煙」與「防狼噴霧」
           </h3>
-          <p className="text-xs sm:text-sm text-rose-700 leading-relaxed">
+          <p className="text-xs sm:text-sm text-rose-700 dark:text-rose-300/90 leading-relaxed">
             香港法例全面禁止進口電子煙、加熱煙及相關煙油煙彈（即使放行李箱轉機或自用皆屬違法，會面臨刑事指控及高額罰款）；防狼噴霧與電擊棒在香港亦屬管制軍火武器。出發打包行李時請務必再次仔細檢查。
           </p>
         </div>
@@ -231,17 +228,17 @@ export const TravelTips: React.FC = () => {
         {filteredSections.map((section) => (
           <div 
             key={section.id} 
-            className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow"
+            className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow"
           >
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-5">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shadow-xs">
                   {section.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-800">{section.title}</h3>
+                <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{section.title}</h3>
               </div>
               {section.badge && (
-                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
                   {section.badge}
                 </span>
               )}
@@ -253,18 +250,18 @@ export const TravelTips: React.FC = () => {
                   key={idx}
                   className={`rounded-xl p-4 border transition-all ${
                     item.warning 
-                      ? 'bg-rose-50/50 border-rose-200' 
+                      ? 'bg-rose-50/50 dark:bg-rose-950/30 border-rose-200 dark:border-rose-900/50' 
                       : item.highlight
-                      ? 'bg-orange-50/40 border-orange-200'
-                      : 'bg-slate-50/60 border-slate-200/80 hover:bg-slate-50'
+                      ? 'bg-orange-50/40 dark:bg-orange-950/30 border-orange-200 dark:border-orange-900/50'
+                      : 'bg-slate-50/60 dark:bg-slate-800/40 border-slate-200/80 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/70'
                   }`}
                 >
                   <h4 className={`text-sm font-bold mb-1.5 flex items-center gap-1.5 ${
                     item.warning 
-                      ? 'text-rose-900' 
+                      ? 'text-rose-900 dark:text-rose-300' 
                       : item.highlight 
-                      ? 'text-orange-900' 
-                      : 'text-slate-800'
+                      ? 'text-orange-900 dark:text-orange-300' 
+                      : 'text-slate-800 dark:text-slate-200'
                   }`}>
                     {item.warning ? (
                       <AlertTriangle className="w-4 h-4 text-rose-500 flex-shrink-0" />
@@ -275,7 +272,7 @@ export const TravelTips: React.FC = () => {
                     )}
                     <span>{item.subtitle}</span>
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                     {item.content}
                   </p>
                 </div>
@@ -286,8 +283,8 @@ export const TravelTips: React.FC = () => {
       </div>
 
       {/* Useful Official Links */}
-      <div className="bg-slate-100 rounded-2xl p-5 border border-slate-200">
-        <h4 className="text-sm font-bold text-slate-800 mb-3 flex items-center gap-2">
+      <div className="bg-slate-100 dark:bg-slate-900/90 rounded-2xl p-5 border border-slate-200 dark:border-slate-800">
+        <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 mb-3 flex items-center gap-2">
           <Compass className="w-4 h-4 text-orange-500" />
           <span>官方常用快速查詢連結</span>
         </h4>
@@ -296,7 +293,7 @@ export const TravelTips: React.FC = () => {
             href="https://www.immd.gov.hk/hkt/services/vwp.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-200 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-orange-50 dark:hover:bg-slate-700 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-200 dark:hover:border-orange-500/40 transition-colors"
           >
             <span>香港入境處：台灣居民預辦入境登記 (電子港簽)</span>
             <ExternalLink className="w-3 h-3" />
@@ -305,7 +302,7 @@ export const TravelTips: React.FC = () => {
             href="https://www.discoverhongkong.com/tc/index.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-200 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-orange-50 dark:hover:bg-slate-700 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-200 dark:hover:border-orange-500/40 transition-colors"
           >
             <span>香港旅遊發展局 (Discover Hong Kong)</span>
             <ExternalLink className="w-3 h-3" />
@@ -314,7 +311,7 @@ export const TravelTips: React.FC = () => {
             href="https://www.mtr.com.hk/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-200 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-orange-50 dark:hover:bg-slate-700 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-200 dark:hover:border-orange-500/40 transition-colors"
           >
             <span>港鐵 MTR 路線與票價查詢</span>
             <ExternalLink className="w-3 h-3" />
@@ -323,7 +320,7 @@ export const TravelTips: React.FC = () => {
             href="https://www.thepeak.com.hk/tc"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-200 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-orange-50 dark:hover:bg-slate-700 hover:text-orange-600 dark:hover:text-orange-400 hover:border-orange-200 dark:hover:border-orange-500/40 transition-colors"
           >
             <span>太平山頂纜車官方網站</span>
             <ExternalLink className="w-3 h-3" />
