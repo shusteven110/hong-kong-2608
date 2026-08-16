@@ -1,0 +1,6 @@
+{
+  "name": "Hong Kong Itinerary",
+  "description": "A detailed 4-day travel itinerary for Hong Kong, featuring Chiikawa and Sanrio events.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
